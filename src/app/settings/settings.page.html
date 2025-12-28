@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Display Recipe Measurements In:</ion-label>
+    </ion-list-header>
+    
+    <ion-radio-group [(ngModel)]="measurementUnit">
+      <ion-item>
+        <ion-label>Metric</ion-label>
+        <ion-radio slot="start" value="metric"></ion-radio>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>US</ion-label>
+        <ion-radio slot="start" value="us"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
