@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonItem, IonInput } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { heart, settings } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  standalone: true,
+  imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonItem, IonInput],
 })
 export class HomePage {
-  constructor() {}
+  
+  ingredients: string = '';
+
+  constructor() {
+    addIcons({ heart, settings });
+  }
+
+  searchRecipes() {
+      // TODO Connect to Spoonacular API
+    console.log('Searching for:', this.ingredients);
+  }
 }
