@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favourites Recipes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <p *ngIf="favourites.length === 0" class="no-favourites">
+      No favourite recipes yet!
+    </p>
+    
+    <!-- TODO: Display favourite recie cards  -->
+    <div *ngFor="let recipe of favourites" class="recipe-card">
+      <img [src]="recipe.image" [alt]="recipe.title" />
+      <h3>{{ recipe.title }}</h3>
+      <ion-button expand="block" size="small">
+        DETAILS
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

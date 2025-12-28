@@ -1,0 +1,28 @@
+.container {
+  padding: 16px;
+}
+
+.no-favourites {
+  text-align: center;
+  color: #666;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.recipe-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  
+  img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  h3 {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+}
