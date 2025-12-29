@@ -2,7 +2,6 @@
   <ion-toolbar>
     <ion-title>G00472910</ion-title>
     <ion-buttons slot="end">
-      
       <ion-button routerLink="/favourites">
         <ion-icon slot="icon-only" name="heart"></ion-icon>
       </ion-button>
@@ -24,8 +23,23 @@
       </ion-input>
     </ion-item>
     
-    <ion-button expand="block" (click)="searchRecipes()">
-      Searcg Recipes
+    <ion-button expand="block" (click)="searchRecipes()" [disabled]="searching">
+      {{ searching ? 'SEARCHING...' : 'SEARCH' }}
     </ion-button>
+
+    <!-- Recipe Results -->
+    <div class="recipes-grid" *ngIf="recipes.length > 0">
+      <ion-card *ngFor="let recipe of recipes" class="recipe-card">
+        <img [src]="recipe.image" [alt]="recipe.title" />
+        <ion-card-header>
+          <ion-card-title>{{ recipe.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button expand="block" size="small">
+            DETAILS
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 </ion-content>
