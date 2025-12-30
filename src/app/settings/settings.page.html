@@ -13,8 +13,7 @@
       <ion-label>Display Recipe Measurements In:</ion-label>
     </ion-list-header>
     
-    <ion-radio-group [(ngModel)]="measurementUnit">
-      <ion-item>
+      <ion-radio-group [(ngModel)]="measurementUnit" (ionChange)="onMeasurementChange()">      <ion-item>
         <ion-label>Metric</ion-label>
         <ion-radio slot="start" value="metric"></ion-radio>
       </ion-item>

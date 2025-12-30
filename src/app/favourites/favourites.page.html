@@ -17,7 +17,7 @@
     <div *ngFor="let recipe of favourites" class="recipe-card">
       <img [src]="recipe.image" [alt]="recipe.title" />
       <h3>{{ recipe.title }}</h3>
-      <ion-button expand="block" size="small">
+      <ion-button expand="block" size="small" [routerLink]="['/recipe-details', recipe.id]">
         DETAILS
       </ion-button>
     </div>
