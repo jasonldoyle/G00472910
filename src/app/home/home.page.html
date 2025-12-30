@@ -28,18 +28,15 @@
     </ion-button>
 
     <!-- Recipe Results -->
-    <div class="recipes-grid" *ngIf="recipes.length > 0">
-      <ion-card *ngFor="let recipe of recipes" class="recipe-card">
-        <img [src]="recipe.image" [alt]="recipe.title" />
-        <ion-card-header>
-          <ion-card-title>{{ recipe.title }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-button expand="block" size="small">
-            DETAILS
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
-    </div>
+    <!-- Recipe Results -->
+<div *ngIf="recipes.length > 0">
+  <div *ngFor="let recipe of recipes" class="recipe-item">
+    <img [src]="recipe.image" [alt]="recipe.title" />
+    <h3>{{ recipe.title }}</h3>
+    <ion-button expand="block" [routerLink]="['/recipe-details', recipe.id]">
+      DETAILS
+    </ion-button>
+  </div>
+</div>
   </div>
 </ion-content>

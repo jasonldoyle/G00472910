@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+      
+    </ion-buttons>
+    <ion-title>Recipe Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="container" *ngIf="recipe">
+    <h2>Ingredients</h2>
+    <div class="ingredient" *ngFor="let ingredient of recipe.extendedIngredients">
+      <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 
+           [alt]="ingredient.name" />
+      <div class="ingredient-info">
+        <p class="ingredient-name">{{ ingredient.original }}</p>
+        <p class="ingredient-amount">
+          {{ measurementUnit === 'us' ? ingredient.measures.us.amount : ingredient.measures.metric.amount }}
+          {{ measurementUnit === 'us' ? ingredient.measures.us.unitLong : ingredient.measures.metric.unitLong }}
+        </p>
+      </div>
+    </div>
+    <h2>Instructions</h2>
+    <div class="instructions" *ngIf="recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0">
+      <div *ngFor="let instruction of recipe.analyzedInstructions[0].steps" class="step">
+        <p><strong>{{ instruction.number }}.</strong> {{ instruction.step }}</p>
+      </div>
+    </div>
+    <ion-button expand="block" (click)="toggleFavourite()">
+      {{ isFavourite ? 'REMOVE FROM FAVOURITES' : 'ADD TO FAVOURITES' }}
+    </ion-button>
+  </div>
+  <div class="loading" *ngIf="!recipe">
+    <p>Loading recipe details...</p>
+  </div>
+</ion-content>
