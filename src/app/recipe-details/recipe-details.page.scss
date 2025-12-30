@@ -64,3 +64,40 @@ h2 {
 ion-button {
   margin-top: 24px;
 }
+
+.recipe-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 16px 0;
+  color: #333;
+}
+
+.rating-section {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+  .rating-label {
+    margin: 0 0 12px 0;
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    
+    .star-icon {
+      font-size: 32px;
+      color: #ffd700;
+      cursor: pointer;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

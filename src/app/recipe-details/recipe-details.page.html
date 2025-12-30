@@ -9,6 +9,21 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <div class="container" *ngIf="recipe">
+    <h1 class="recipe-title">{{ recipe.title }}</h1>
+    
+    <!-- nEW Rating Section --->
+    <div class="rating-section">
+      <p class="rating-label">Rate this recipe:</p>
+      <div class="stars">
+        <ion-icon 
+          *ngFor="let num of getStarArray()" 
+          [name]="num <= rating ? 'star' : 'star-outline'"
+          (click)="setRating(num)"
+          class="star-icon">
+        </ion-icon>
+      </div>
+    </div>
+
     <h2>Ingredients</h2>
     <div class="ingredient" *ngFor="let ingredient of recipe.extendedIngredients">
       <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 

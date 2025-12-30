@@ -13,10 +13,14 @@
       No favourite recipes yet!
     </p>
     
-    <!-- TODO: Display favourite recie cards  -->
     <div *ngFor="let recipe of favourites" class="recipe-card">
       <img [src]="recipe.image" [alt]="recipe.title" />
       <h3>{{ recipe.title }}</h3>
+
+      <div class="rating-display" *ngIf="recipe.rating > 0">
+    <ion-icon *ngFor="let i of getStarArray(recipe.rating)" name="star"></ion-icon>
+    <span class="rating-text">{{ recipe.rating }}/5</span>
+  </div>
       <ion-button expand="block" size="small" [routerLink]="['/recipe-details', recipe.id]">
         DETAILS
       </ion-button>

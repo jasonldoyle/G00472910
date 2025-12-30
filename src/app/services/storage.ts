@@ -15,7 +15,6 @@ export class StorageService {
     const storage = await this.storage.create();
     this._storage = storage;
   }
-
   //save measurement unit preference
   async setMeasurementUnit(unit: string) {
     await this._storage?.set('measurementUnit', unit);
@@ -50,5 +49,21 @@ export class StorageService {
   async isFavourite(recipeId: number): Promise<boolean> {
     const favourites = await this.getFavourites();
     return favourites.some(f => f.id === recipeId);
+  }
+
+  //new ratings
+  async setRecipeRating(recipeId: number, rating: number) {
+    const ratings = await this.getRecipeRatings();
+    ratings[recipeId] = rating;
+    await this._storage?.set('recipeRatings', ratings);
+  }
+  async getRecipeRating(recipeId: number): Promise<number> {
+    const ratings = await this.getRecipeRatings();
+    return ratings[recipeId] || 0;
+  }
+
+  async getRecipeRatings(): Promise<any> {
+    const ratings = await this._storage?.get('recipeRatings');
+    return ratings || {};
   }
 }
