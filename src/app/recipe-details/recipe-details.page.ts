@@ -80,4 +80,10 @@ export class RecipeDetailsPage implements OnInit {
   getStarArray() {
     return [1, 2, 3, 4, 5];
   }
+
+  async addToShoppingList(ingredient: string) {
+  await this.storageService.addToShoppingList(ingredient);
+  console.log('Added to shopping list:', ingredient);
+  // look into to adding toast here
+}
 }

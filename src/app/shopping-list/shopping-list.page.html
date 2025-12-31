@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Shoping List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <p *ngIf="shoppingList.length === 0" class="empty-message">
+      Your shopping list is empty. Add ingredients from recipe details!
+    </p>
+
+    <ion-list *ngIf="shoppingList.length > 0">
+      <ion-item *ngFor="let item of shoppingList">
+        <ion-checkbox 
+          slot="start" 
+          [checked]="item.checked"
+          (ionChange)="toggleItem(item.name)">
+        </ion-checkbox>
+
+        <ion-label [class.checked]="item.checked">
+          {{ item.name }}
+        </ion-label>
+        
+        <ion-button 
+          slot="end" 
+          fill="clear" 
+          color="danger"
+          (click)="removeItem(item.name)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-button
+
+      *ngIf="hasCheckedItems" 
+      expand="block" 
+      color="danger"
+      (click)="clearChecked()">
+      Clear Checked Items
+    </ion-button>
+  </div>
+</ion-content>

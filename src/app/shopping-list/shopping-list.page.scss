@@ -1,0 +1,103 @@
+.container {
+  padding: 16px;
+}
+
+h2 {
+  margin: 24px 0 16px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 12px;
+  }
+  
+  .ingredient-info {
+    flex: 1;
+    
+    .ingredient-name {
+      margin: 0 0 4px 0;
+      font-weight: 500;
+    }
+    
+    .ingredient-amount {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
+
+.instructions {
+  .step {
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    
+    p {
+      margin: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+ion-button {
+  margin-top: 24px;
+}
+
+.recipe-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 16px 0;
+  color: #333;
+}
+
+.rating-section {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+  .rating-label {
+    margin: 0 0 12px 0;
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    
+    .star-icon {
+      font-size: 32px;
+      color: #ffd700;
+      cursor: pointer;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

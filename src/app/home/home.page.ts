@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonItem, IonInput, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { heart, settings } from 'ionicons/icons';
+import { cart, heart, settings } from 'ionicons/icons';
 import { RecipeService } from '../services/recipe';
 
 @Component({
@@ -20,7 +20,7 @@ export class HomePage {
   searching: boolean = false;
 
   constructor(private recipeService: RecipeService) {
-    addIcons({ heart, settings });
+    addIcons({ cart, heart, settings });
   }
 
   searchRecipes() {

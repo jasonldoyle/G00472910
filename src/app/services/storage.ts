@@ -66,4 +66,44 @@ export class StorageService {
     const ratings = await this._storage?.get('recipeRatings');
     return ratings || {};
   }
+
+  async getShoppingList(): Promise<any[]> {
+    const list = await this._storage?.get('shoppingList');
+    return list || [];
+  }
+
+  async addToShoppingList(ingredient: string) {
+    const list = await this.getShoppingList();
+    // Check if already exists
+    const exists = list.find(item => item.name === ingredient);
+    if (!exists) {
+      list.push({
+        name: ingredient,
+        checked: false,
+        addedAt: new Date().toISOString()
+      });
+      await this._storage?.set('shoppingList', list);
+    }
+  }
+//shoppinglist feature
+  async toggleShoppingItem(ingredient: string) {
+    const list = await this.getShoppingList();
+    const item = list.find(i => i.name === ingredient);
+    if (item) {
+      item.checked = !item.checked;
+      await this._storage?.set('shoppingList', list);
+    }
+  }
+
+  async removeShoppingItem(ingredient: string) {
+    let list = await this.getShoppingList();
+    list = list.filter(item => item.name !== ingredient);
+    await this._storage?.set('shoppingList', list);
+  }
+
+  async clearCheckedItems() {
+    let list = await this.getShoppingList();
+    list = list.filter(item => !item.checked);
+    await this._storage?.set('shoppingList', list);
+  }
 }

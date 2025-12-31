@@ -2,6 +2,9 @@
   <ion-toolbar>
     <ion-title>G00472910</ion-title>
     <ion-buttons slot="end">
+      <ion-button routerLink="/shopping-list">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
       <ion-button routerLink="/favourites">
         <ion-icon slot="icon-only" name="heart"></ion-icon>
       </ion-button>
@@ -27,8 +30,6 @@
       {{ searching ? 'SEARCHING...' : 'SEARCH' }}
     </ion-button>
 
-    <!-- Recipe Results -->
-    <!-- Recipe Results -->
 <div *ngIf="recipes.length > 0">
   <div *ngFor="let recipe of recipes" class="recipe-item">
     <img [src]="recipe.image" [alt]="recipe.title" />

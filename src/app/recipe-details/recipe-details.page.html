@@ -26,16 +26,19 @@
 
     <h2>Ingredients</h2>
     <div class="ingredient" *ngFor="let ingredient of recipe.extendedIngredients">
-      <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 
-           [alt]="ingredient.name" />
-      <div class="ingredient-info">
-        <p class="ingredient-name">{{ ingredient.original }}</p>
-        <p class="ingredient-amount">
-          {{ measurementUnit === 'us' ? ingredient.measures.us.amount : ingredient.measures.metric.amount }}
-          {{ measurementUnit === 'us' ? ingredient.measures.us.unitLong : ingredient.measures.metric.unitLong }}
-        </p>
-      </div>
-    </div>
+  <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 
+       [alt]="ingredient.name" />
+  <div class="ingredient-info">
+    <p class="ingredient-name">{{ ingredient.original }}</p>
+    <p class="ingredient-amount">
+      {{ measurementUnit === 'us' ? ingredient.measures.us.amount : ingredient.measures.metric.amount }}
+      {{ measurementUnit === 'us' ? ingredient.measures.us.unitLong : ingredient.measures.metric.unitLong }}
+    </p>
+    <ion-button size="small" fill="outline" (click)="addToShoppingList(ingredient.original)">
+      Add to List
+    </ion-button>
+  </div>
+</div>
     <h2>Instructions</h2>
     <div class="instructions" *ngIf="recipe.analyzedInstructions && recipe.analyzedInstructions.length > 0">
       <div *ngFor="let instruction of recipe.analyzedInstructions[0].steps" class="step">
